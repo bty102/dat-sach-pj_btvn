@@ -21,7 +21,7 @@
 				<ul class="navbar-nav me-auto">
 					<li class="nav-item"><a class="nav-link" href="TrangChu">Trang
 							chủ</a></li>
-					<li class="nav-item"><a class="nav-link" href="gio-hang.jsp">Giỏ
+					<li class="nav-item"><a class="nav-link" href="GioHang">Giỏ
 							hàng</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Thanh
 							toán</a></li>
