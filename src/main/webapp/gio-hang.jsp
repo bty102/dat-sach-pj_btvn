@@ -105,6 +105,13 @@
 			<button type="submit" formaction="XoaSachTrongGioHang" formmethod="post">Xoá chọn</button>
 			
 			</form>
+			
+			<div class="d-flex justify-content-end">
+				<c:if test="${sessionScope.gh != null && sessionScope.gh.getDsSach().size() != 0}">
+					<a href="DatMua">Xác nhận đặt mua</a>
+				</c:if>
+			</div>
+			
 			<div>
 				<span>Tổng tiền của giỏ hàng: </span> <span> <c:if
 						test="${sessionScope.gh != null }">
