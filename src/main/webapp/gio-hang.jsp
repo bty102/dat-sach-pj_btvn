@@ -29,7 +29,7 @@
 							hàng</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Thanh
 							toán</a></li>
-					<li class="nav-item"><a class="nav-link" href="#">Lịch sử
+					<li class="nav-item"><a class="nav-link" href="LichSuMuaHang">Lịch sử
 							mua hàng</a></li>
 	
 					<li class="nav-item"><a class="nav-link" href="DangXuat">Đăng

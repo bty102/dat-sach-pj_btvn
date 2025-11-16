@@ -12,7 +12,7 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>Trang chủ</title>
+<title>Lịch sử mua hàng</title>
 <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 </head>
@@ -71,43 +71,47 @@
 			</c:forEach>
 		</div>
 		<div class="col-sm-9">
-			<div class="row">
 			
-			<c:forEach var="sach" items="${dsSach }">
-				<div class="col-4">
-							<img alt="${sach.getTenSach()}" src="${sach.getAnh()}">
-							<div>${sach.getTenSach()}</div>
-							<div>${sach.getGia()}</div>
-							<div>${sach.getTacGia()}</div>
-							<a href="GioHang?buy=1&maSach=${sach.getMaSach()}"><img src="buynow.jpg"></a>
-				</div>
-			</c:forEach>
-			</div>
-			<div class="row">
-				<nav aria-label="Page navigation example">
-					<ul class="pagination d-flex flex-wrap">
-						<c:choose>
-							<c:when test="${mode == 'all'}">
-								<c:forEach var="t" begin="1" end="${soTrang}" step="1">
-									<li class="page-item ${trangHienTai == t? 'active' : ''}"><a class="page-link" href="TrangChu?trang=${t}">${t}</a></li>
-								</c:forEach>
-							</c:when>
-							
-							<c:when test="${mode == 'searchMaLoai'}">
-								<c:forEach var="t" begin="1" end="${soTrang}" step="1">
-									<li class="page-item ${trangHienTai == t? 'active' : ''}"><a class="page-link" href="TrangChu?ml=${maLoai}&trang=${t}">${t}</a></li>
-								</c:forEach>
-							</c:when>
-							
-							<c:when test="${mode == 'searchTenSachOrTacGia'}">
-								<c:forEach var="t" begin="1" end="${soTrang}" step="1">
-									<li class="page-item ${trangHienTai == t? 'active' : ''}"><a class="page-link" href="TrangChu?txttk=${txtTk}&trang=${t}">${t}</a></li>
-								</c:forEach>
-							</c:when>
-						</c:choose>
-					</ul>
-				</nav>
-			</div>
+			<table class="table table-striped caption-top">
+				<caption>Lịch sử mua hàng</caption>
+			
+				<thead>
+					<tr>
+						<th>Mã hóa đơn</th>
+						<th>Mã sách</th>
+						<th>Tên sách</th>
+						<th>Giá</th>
+						<th>Số lượng mua</th>
+						<th>Thành tiền</th>
+						<th>Ngày mua</th>
+						<th>Thanh toán</th>
+					</tr>
+				</thead>
+				
+				<tbody>
+					<c:forEach items="${lichSuMuaHang}" var="ls">
+						<tr>
+							<td>${ls.getMaHD()}</td>
+							<td>${ls.getMaSach()}</td>
+							<td>${ls.getTenSach()}</td>
+							<td>${ls.getGia()}</td>
+							<td>${ls.getSoLuongMua()}</td>
+							<td>${ls.getThanhTien()} VNĐ</td>
+							<td>${ls.getNgayMuaString()}</td>
+							<td>${ls.isDaMua()? 'Đã thanh toán' : 'Chưa thanh toán'}</td>
+						</tr>
+					</c:forEach>
+				</tbody>
+			</table>
+			
+			<nav aria-label="Page navigation example">
+				<ul class="pagination flex-wrap">
+					<c:forEach var="page" begin="1" end="${soLuongTrang}" step="1">
+						<li class="page-item ${(currentPage == page)? 'active' : ''}"><a class="page-link" href="LichSuMuaHang?page=${page}">${page}</a></li>
+					</c:forEach>
+				</ul>
+			</nav>
+			
 		</div>
 	</div>
 </body>

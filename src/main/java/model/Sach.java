@@ -6,7 +6,7 @@ public class Sach {
 	private String tenSach;
 	private String tacGia;
 	private long soLuong; // So luong ton kho
-	private long gia;
+	private long gia; // VNĐ
 	private String anh;
 	private String maLoai;
 
