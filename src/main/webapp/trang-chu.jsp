@@ -45,6 +45,10 @@
 								xuất</a></li>
 					</c:if>
 					
+					<li class="nav-item">
+							<a class="nav-link" href="DangKy">Đăng ký</a>
+					</li>
+					
 					<c:choose>
 						<c:when test="${sessionScope.un == null }">
 							<li class="nav-item"><a class="nav-link" href="#">Xin
@@ -55,6 +59,7 @@
 							chao: ${sessionScope.un.getHoTen()}</a></li>
 						</c:otherwise>
 					</c:choose>
+					
 				</ul>
 				<form class="d-flex" action="TrangChu" method="get">
 					<input class="form-control me-2" type="text" placeholder="Nhập tên sách hoặc tác giả..." name="txttk">

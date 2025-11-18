@@ -13,6 +13,20 @@ public class KhachHang {
 	public KhachHang() {
 		super();
 	}
+	
+	
+
+	public KhachHang(String hoTen, String diaChi, String soDienThoai, String email, String tenDangNhap, String pass) {
+		super();
+		this.hoTen = hoTen;
+		this.diaChi = diaChi;
+		this.soDienThoai = soDienThoai;
+		this.email = email;
+		this.tenDangNhap = tenDangNhap;
+		this.pass = pass;
+	}
+
+
 
 	public KhachHang(long maKH, String hoTen, String diaChi, String soDienThoai, String email, String tenDangNhap,
 			String pass) {
