@@ -8,6 +8,7 @@
 <title>Insert title here</title>
 </head>
 <body>
+<!-- 
 	<form action="DangKy" method="post">
 		<div>
 			<label for="name">Họ tên:</label>
@@ -48,5 +49,21 @@
 			<button type="submit">Đăng ký</button>
 		</div>
 	</form>
+ -->
+ <form action="DangKy" method="post">
+ 	<div>
+ 		<label for="email">Email:</label>
+ 		<input type="text" name="email" id="email" value="${email}">
+ 		<span>${emailErrorMsg}</span>
+ 	</div>
+ 	<div>
+ 		<button type="submit">Đăng ký</button>
+ 	</div>
+ </form>
+ <c:if test="${success}">
+ <div>
+ 	Thư đã được gửi đến email của bạn. Vui lòng kiểm tra email để thực hiện đăng ký tài khoản!
+ </div>
+ </c:if>
 </body>
 </html>

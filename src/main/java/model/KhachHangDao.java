@@ -27,4 +27,21 @@ public class KhachHangDao {
 		}
 		return kh;
 	}
+	
+	public boolean existByEmail(String email) throws SQLException {
+		KetNoi ketNoi = new KetNoi();
+		ketNoi.ketNoi();
+		String sql = "select * from KhachHang where email = ?";
+		PreparedStatement ps = ketNoi.cn.prepareStatement(sql);
+		ps.setNString(1, email);
+		ResultSet rs = ps.executeQuery();
+		if(rs.next()) {
+			rs.close();
+			ketNoi.cn.close();
+			return true;
+		}
+		rs.close();
+		ketNoi.cn.close();
+		return false;
+	}
 }

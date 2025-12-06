@@ -16,4 +16,15 @@ public class KhachHangBo {
 		}
 		return kh;
 	}
+	
+	public Boolean existByEmail(String email) {
+		Boolean ex = null;
+		try {
+			ex = khachHangDao.existByEmail(email);
+		} catch (SQLException e) {
+			
+			e.printStackTrace();
+		}
+		return ex;
+	}
 }
