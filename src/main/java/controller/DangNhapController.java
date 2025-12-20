@@ -70,6 +70,11 @@ public class DangNhapController extends HttpServlet {
 			request.setAttribute("authenMsg", "Thông tin đăng nhập không đúng");
 		}
 		
+		String successfulRegis = request.getParameter("successfulRegis");
+		if(successfulRegis != null) {
+			request.setAttribute("successfulRegisMsg", "Đăng ký thành công");
+		}
+		
 		RequestDispatcher rd = request.getRequestDispatcher("dang-nhap.jsp");
 		rd.forward(request, response);
 	}

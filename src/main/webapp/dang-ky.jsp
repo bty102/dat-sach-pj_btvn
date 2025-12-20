@@ -53,7 +53,7 @@
  <form action="DangKy" method="post">
  	<div>
  		<label for="email">Email:</label>
- 		<input type="text" name="email" id="email" value="${email}">
+ 		<input type="text" name="email" id="email" value="${requestScope.email}">
  		<span>${emailErrorMsg}</span>
  	</div>
  	<div>

@@ -38,6 +38,7 @@
 	</nav>
 	<div class="row justify-content-center">
 		<div class="col-6">
+			<span>${requestScope.successfulRegisMsg}</span>
 			<form action="DangNhap" method="post">
 				<div>
 					<h1 class="text-center">Đăng nhập</h1>

@@ -47,6 +47,11 @@ public class TokenVerificationController extends HttpServlet {
 			String email = verificationTokenBo.getEmailByTokenId(tokenId);
 			session.setAttribute("email", email);
 			System.out.println(email + " da xac thuc token");
+			response.sendRedirect("DangKyChiTiet");
+			return;
+		} else {
+			response.sendRedirect("DangKy");
+			return;
 		}
 	}
 
