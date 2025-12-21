@@ -37,23 +37,35 @@
 		</div>
 	</nav>
 	<div class="row justify-content-center">
-		<div class="col-6">
-			<span>${requestScope.successfulRegisMsg}</span>
+		<div class="col-sm-auto">
+			<div class="text-center">
+				<span class="fw-light text-success">${requestScope.successfulRegisMsg}</span>
+			</div>
 			<form action="DangNhap" method="post">
 				<div>
 					<h1 class="text-center">Đăng nhập</h1>
 				</div>
-				<div>
+				<div class="mb-3">
 					<label class="form-label" for="username">Username:</label>
 					<input class="form-control" type="text" name="username" id="username" placeholder="Enter username...">
 				</div>
-				<div>
+				<div class="mb-3">
 					<label class="form-label" for="password">Password:</label>
 					<input class="form-control" type="password" name="password" id="password" placeholder="Enter password...">
 				</div>
-				<div class="text-center text-danger">
+				<div class="text-center text-danger mb-2">
 					${authenMsg}
 				</div>
+				<c:if test="${sessionScope.soLanDangNhapThatBai >= 3}">
+					<div class="row">
+						<div class="col-sm-auto mb-2">
+							<img src="simpleCaptcha.jpg" />
+						</div>
+						<div class="col-sm-auto d-flex mb-2">
+							<input class="form-control" type="text" name="captchaAnswer" placeholder="Enter captcha...">
+						</div>
+					</div>
+				</c:if>
 				<div class="d-flex justify-content-center mt-2">
 					<button class="btn btn-primary" type="submit">Đăng nhập</button>
 				</div>

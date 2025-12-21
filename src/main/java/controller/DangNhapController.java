@@ -14,6 +14,7 @@ import javax.websocket.Session;
 
 import model.KhachHang;
 import model.KhachHangBo;
+import nl.captcha.Captcha;
 
 /**
  * Servlet implementation class DangNhapController
@@ -56,11 +57,38 @@ public class DangNhapController extends HttpServlet {
 			KhachHang kh = khachHangBo.kiemTraDangNhap(username, password);
 		
 			if(kh != null) {
+				Captcha captcha = (Captcha) session.getAttribute(Captcha.NAME);
+				if(captcha != null) {
+					String captchaAnswer = request.getParameter("captchaAnswer");
+					if(captchaAnswer == null) {
+						response.sendRedirect("DangNhap");
+						return;
+					}
+					if(captcha.isCorrect(captchaAnswer)) {
+						
+						session.setAttribute("un", kh);
+						session.removeAttribute("soLanDangNhapThatBai");
+						response.sendRedirect("TrangChu");
+						return;
+					} else {
+						response.sendRedirect("DangNhap");
+						return;
+					}
+				}
 				
 				session.setAttribute("un", kh);
+				session.removeAttribute("soLanDangNhapThatBai");
 				response.sendRedirect("TrangChu");
 				return;
 			} else {
+				// Dang nhap that bai
+				if(session.getAttribute("soLanDangNhapThatBai") == null) {
+					session.setAttribute("soLanDangNhapThatBai", (Integer) 0);
+					
+				}
+				Integer soLanDangNhapThatBai = (Integer) session.getAttribute("soLanDangNhapThatBai");
+				soLanDangNhapThatBai++;
+				session.setAttribute("soLanDangNhapThatBai", soLanDangNhapThatBai);
 				response.sendRedirect("DangNhap?authenFail=1");
 				return;
 			}

@@ -44,11 +44,11 @@
 						<li class="nav-item"><a class="nav-link" href="DangXuat">Đăng
 								xuất</a></li>
 					</c:if>
-					
-					<li class="nav-item">
-							<a class="nav-link" href="DangKy">Đăng ký</a>
-					</li>
-					
+					<c:if test="${sessionScope.un == null }">
+						<li class="nav-item">
+								<a class="nav-link" href="DangKy">Đăng ký</a>
+						</li>
+					</c:if>
 					<c:choose>
 						<c:when test="${sessionScope.un == null }">
 							<li class="nav-item"><a class="nav-link" href="#">Xin

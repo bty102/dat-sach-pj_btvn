@@ -13,6 +13,7 @@ public class KhachHangBo {
 		try {
 			//kh = khachHangDao.timKiemTheoTenDangNhapVaMatKhau(tenDangNhap, matKhau);
 			kh = khachHangDao.timKiemTheoTenDangNhap(tenDangNhap);
+			if(kh == null) return null;
 			MD5Encoder encoder = new MD5Encoder();
 			if(!encoder.verify(matKhau, kh.getPass())) {
 				return null;
